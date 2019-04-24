@@ -9,4 +9,7 @@ export type Build = {
   StartTime: string
   Log: string
   FinishTime: string
+  Edits: Array<string> | null
+  PendingBuildSince: string
+  PendingBuildEdits: Array<string> | null
 }
