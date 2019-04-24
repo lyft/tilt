@@ -43,6 +43,17 @@ exports[`StatusBar renders two items all ok snapshot 1`] = `
   >
     Building: vigoda
   </p>
+  <p
+    className="Statusbar-panel--lastEdit"
+  >
+    Last Edit 
+    main.go
+    cli.go
+    vigoda.go
+     (
+    vigoda
+    )
+  </p>
   <span
     className="Statusbar-panel Statusbar-panel--up"
   >
@@ -101,6 +112,16 @@ exports[`StatusBar renders two items both errors snapshot 1`] = `
     className="Statusbar-panel--statusMessage"
   >
     Build failed: vigoda
+  </p>
+  <p
+    className="Statusbar-panel--lastEdit"
+  >
+    Last Edit 
+    main.go
+    cli.go
+     (
+    vigoda
+    )
   </p>
   <span
     className="Statusbar-panel Statusbar-panel--up"
@@ -161,6 +182,7 @@ exports[`StatusBar renders without crashing 1`] = `
   >
     
   </p>
+  
   <span
     className="Statusbar-panel Statusbar-panel--up"
   >

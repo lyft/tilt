@@ -2,10 +2,10 @@ import { Build } from "./types"
 import { isZeroTime } from "./time"
 
 export type ResourceWithBuilds = {
-  Name: string
-  BuildHistory: Array<Build>
-  PendingBuildSince: string
-  PendingBuildEdits: Array<string> | null
+  name: string
+  buildHistory: Array<Build>
+  pendingBuildSince: string
+  pendingBuildEdits: Array<string> | null
 }
 
 const buildByDate = (b1: BuildTuple, b2: BuildTuple) => {
@@ -28,15 +28,15 @@ type BuildTuple = {
 
 const makePendingBuild = (r: ResourceWithBuilds): BuildTuple => {
   return {
-    name: r.Name,
-    since: r.PendingBuildSince,
-    edits: r.PendingBuildEdits ? r.PendingBuildEdits : [],
+    name: r.name,
+    since: r.pendingBuildSince,
+    edits: r.pendingBuildEdits ? r.pendingBuildEdits : [],
   }
 }
 
 const makeBuildHistory = (r: ResourceWithBuilds, b: Build): BuildTuple => {
   return {
-    name: r.Name,
+    name: r.name,
     since: b.StartTime,
     edits: b.Edits ? b.Edits : [],
   }
@@ -56,10 +56,10 @@ const mostRecentBuild = (
   }
 
   let buildHistorySorted = resources
-    .flatMap(r => r.BuildHistory.map(b => makeBuildHistory(r, b)))
+    .flatMap(r => r.buildHistory.map(b => makeBuildHistory(r, b)))
     .sort(buildByDate)
 
-  if (buildHistorySorted.length > 0) {
+  if (buildHistorySorted.length > 0 && buildHistorySorted[0].edits.length > 0) {
     return buildHistorySorted[0]
   }
 
