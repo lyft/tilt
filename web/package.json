@@ -25,11 +25,12 @@
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.8",
+    "react-scripts": "3.0.0",
     "react-select": "^2.4.2",
     "react-test-renderer": "^16.7.0",
     "react-timeago": "^4.4.0",
-    "typescript": "^3.3.4000"
+    "typescript": "^3.3.4000",
+    "snyk": "^1.244.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -37,7 +38,9 @@
     "test": "react-scripts test",
     "test-debug": "react-scripts --inspect-brk test --runInBand --no-cache",
     "eject": "react-scripts eject",
-    "check": "prettier --check \"src/**/*.ts*\" && tsc -p ."
+    "check": "prettier --check \"src/**/*.ts*\" && tsc -p .",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -53,5 +56,6 @@
   },
   "engines": {
     "node": ">=11.0.0"
-  }
+  },
+  "snyk": true
 }
